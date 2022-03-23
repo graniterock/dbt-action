@@ -1,10 +1,10 @@
 # dbt-action
 This is a modified version of the mwhitaker/dbt-action repo on github. It has been changed to support newer versions of dbt. An issue has been opened [here](https://github.com/mwhitaker/dbt-action/issues/24).
 
-A GitHub Action to run [dbt](https://www.getdbt.com) commands in a Docker container. It uses the official images provided by [Xemulian- formlery known as Fishtown Analytics](https://hub.docker.com/r/xemuliam/dbt/tags). You can use [dbt commands](https://docs.getdbt.com/reference/dbt-commands) such as `run`, `test` and `debug`. This action captures the dbt console output for use in subsequent steps.
+A GitHub Action to run [dbt](https://www.getdbt.com) commands in a Docker container. It uses the official images provided by [Xemulian](https://hub.docker.com/r/xemuliam/dbt/tags). You can use [dbt commands](https://docs.getdbt.com/reference/dbt-commands) such as `run`, `test` and `debug`. This action captures the dbt console output for use in subsequent steps.
 
 ### dbt version
-The current version of dbt is 1.0.0. Please note that dbt v1.0.0. may require some changes to your dbt project structure compared to v0.x.x. See the [migration](https://docs.getdbt.com/docs/guides/migration-guide/upgrading-to-1-0-0) docs.
+The current version of dbt is 1.0.1. Please note that dbt v1.0.x may require some changes to your dbt project structure compared to v0.x.x. See the [migration](https://docs.getdbt.com/docs/guides/migration-guide/upgrading-to-1-0-0) docs.
 
 dbt updates their [docker images](https://hub.docker.com/r/xemuliam/dbt/tags?page=1&ordering=last_updated) on a frequent basis and the main branch of this Github Action should be close to the last stable tag. If you need to use an earlier version of dbt, you can call this action with a specific [branch](https://github.com/mwhitaker/dbt-action/branches), eg `graniterock/dbt-action@xemulian-v1.0.1`
 
@@ -12,7 +12,7 @@ dbt updates their [docker images](https://hub.docker.com/r/xemuliam/dbt/tags?pag
 
 ```yml
     - name: dbt-action
-      uses: mwhitaker/dbt-action@master
+      uses: graniterock/dbt-action@xemulian-v1.0.1
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
@@ -25,7 +25,7 @@ The result of the dbt command is either `failed` or `passed` and is saved into t
 ```yml
     - name: dbt-action
       id: dbt-run
-      uses: mwhitaker/dbt-action@master
+      uses: graniterock/dbt-action@xemulian-v1.0.1
       with:
         dbt_command: "dbt run --profiles-dir ."
       env:
