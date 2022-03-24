@@ -1,6 +1,6 @@
 ARG DBT_VERSION=latest
 FROM xemuliam/dbt:${DBT_VERSION}
-RUN apt-get update && apt-get python3-dev install libsasl2-dev gcc gcc-c++ -y
+RUN apt-get update && apt-get python-dev install libsasl2-dev gcc gcc-c++ -y
 
 # Need to re-declare the ARG to use its default value defined before the FROM
 ARG DBT_VERSION=1.1.0b1
