@@ -1,4 +1,4 @@
-ARG DBT_VERSION=latest
+ARG DBT_VERSION=1.0.1
 FROM xemuliam/dbt:${DBT_VERSION}
 RUN apt-get update && apt-get install --reinstall build-essential -y && apt-get install python-dev libsasl2-dev gcc -y
 
